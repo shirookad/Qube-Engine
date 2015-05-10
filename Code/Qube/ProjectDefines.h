@@ -3,4 +3,10 @@
 
 #pragma once
 
+#ifdef QUBE_EXPORTS
+#	define QUBE_API __declspec(dllexport)
+#else
+#	define QUBE_API __declspec(dllimport)
+#endif
+
 #endif
