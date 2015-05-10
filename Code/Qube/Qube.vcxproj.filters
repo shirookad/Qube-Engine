@@ -27,6 +27,9 @@
     <ClInclude Include="ProjectDefines.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
+    <ClInclude Include="Node.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
