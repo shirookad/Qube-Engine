@@ -15,6 +15,10 @@ build/
 bld/
 [Bb]in/
 [Oo]bj/
+Win32_Debug/Qube.dll
+Win64_Debug/Qube.dll
+Win32_Release/Qube.dll
+Win64_Release/Qube.dll
 
 # Roslyn cache directories
 *.ide/
