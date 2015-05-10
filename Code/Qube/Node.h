@@ -20,6 +20,7 @@ namespace qube {
 	public:
 		QUBE_API Node(std::string name);
 		QUBE_API Node(std::string name, Node *parent);
+		QUBE_API ~Node();
 
 		QUBE_API std::shared_ptr<Node> qube::Node::addChild(const std::string& name);
 		QUBE_API std::shared_ptr<Node> qube::Node::addChild(std::string&& name);

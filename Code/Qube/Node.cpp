@@ -11,6 +11,12 @@ namespace qube {
 		, m_parent(parent) {
 	}
 
+	Node::~Node() {
+		for (const auto& child : m_children) {
+			child->m_parent = nullptr;
+		}
+	}
+
 	std::shared_ptr<Node> Node::addChild(const std::string& name) {
 		auto child = std::make_shared<Node>(name, this);
 		m_children.push_back(child);
