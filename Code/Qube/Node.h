@@ -17,6 +17,11 @@ namespace qube {
 		std::vector<std::shared_ptr<Node>> m_children;
 		Node *m_parent{ nullptr };
 
+		using NodeIterator = decltype(m_children)::iterator;
+
+	private:
+		QUBE_API NodeIterator childIterator(const std::string& name);
+
 	public:
 		QUBE_API Node(std::string name);
 		QUBE_API Node(std::string name, Node *parent);
@@ -24,6 +29,10 @@ namespace qube {
 
 		QUBE_API std::shared_ptr<Node> qube::Node::addChild(const std::string& name);
 		QUBE_API std::shared_ptr<Node> qube::Node::addChild(std::string&& name);
+
+		QUBE_API void removeFromParent();
+		QUBE_API std::shared_ptr<Node> removeChild(const std::string& name);
+		QUBE_API void removeAllChildren() noexcept;
 
 		QUBE_API void iterateThroughChildHierarchy(std::function<void(const std::shared_ptr<Node>&)> func) const;
 
