@@ -5,11 +5,11 @@
 #include <algorithm>
 
 namespace qube {
-	Node::ConstNodeIterator Node::childIterator(const std::string& name) const {
+	Node::ConstNodeIterator Node::childIterator(const char *name) const {
 		return std::find_if(std::begin(m_children), std::end(m_children), [name](const std::shared_ptr<Node>& child) { return child->name() == name; });
 	}
 
-	Node::NodeIterator Node::childIterator(const std::string& name) {
+	Node::NodeIterator Node::childIterator(const char *name) {
 		return std::find_if(std::begin(m_children), std::end(m_children), [name](const std::shared_ptr<Node>& child) { return child->name() == name; });
 	}
 
@@ -46,7 +46,7 @@ namespace qube {
 		m_parent = nullptr;
 	}
 
-	std::shared_ptr<Node> Node::removeChild(const std::string& name) {
+	std::shared_ptr<Node> Node::removeChild(const char *name) {
 		auto childIter = childIterator(name);
 		if (childIter == std::end(m_children)) throw std::runtime_error("Failed to find the given name of the child to be removed");
 		auto removed = *childIter;
@@ -60,7 +60,7 @@ namespace qube {
 		m_children.clear();
 	}
 
-	std::shared_ptr<Node> Node::child(const std::string& name) const {
+	std::shared_ptr<Node> Node::child(const char *name) const {
 		auto childIter = childIterator(name);
 		if (childIter == std::end(m_children)) return nullptr;
 		return *childIter;
