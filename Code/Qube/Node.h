@@ -18,8 +18,10 @@ namespace qube {
 		Node *m_parent{ nullptr };
 
 		using NodeIterator = decltype(m_children)::iterator;
+		using ConstNodeIterator = decltype(m_children)::const_iterator;
 
 	private:
+		QUBE_API ConstNodeIterator childIterator(const std::string& name) const;
 		QUBE_API NodeIterator childIterator(const std::string& name);
 
 	public:
@@ -33,6 +35,8 @@ namespace qube {
 		QUBE_API void removeFromParent();
 		QUBE_API std::shared_ptr<Node> removeChild(const std::string& name);
 		QUBE_API void removeAllChildren() noexcept;
+
+		QUBE_API std::shared_ptr<Node> child(const std::string& name) const;
 
 		QUBE_API void iterateThroughChildHierarchy(std::function<void(const std::shared_ptr<Node>&)> func) const;
 

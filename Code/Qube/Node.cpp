@@ -5,6 +5,10 @@
 #include <algorithm>
 
 namespace qube {
+	Node::ConstNodeIterator Node::childIterator(const std::string& name) const {
+		return std::find_if(std::begin(m_children), std::end(m_children), [name](const std::shared_ptr<Node>& child) { return child->name() == name; });
+	}
+
 	Node::NodeIterator Node::childIterator(const std::string& name) {
 		return std::find_if(std::begin(m_children), std::end(m_children), [name](const std::shared_ptr<Node>& child) { return child->name() == name; });
 	}
@@ -54,6 +58,12 @@ namespace qube {
 	void Node::removeAllChildren() noexcept {
 		for (const auto& child : m_children) { child->m_parent = nullptr; }
 		m_children.clear();
+	}
+
+	std::shared_ptr<Node> Node::child(const std::string& name) const {
+		auto childIter = childIterator(name);
+		if (childIter == std::end(m_children)) return nullptr;
+		return *childIter;
 	}
 
 	void Node::iterateThroughChildHierarchy(std::function<void(const std::shared_ptr<Node>&)> func) const {
