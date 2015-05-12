@@ -33,6 +33,9 @@
     <ClInclude Include="DynamicLibrary.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
+    <ClInclude Include="Window.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
