@@ -9,4 +9,13 @@
 #	define QUBE_API __declspec(dllimport)
 #endif
 
+#ifdef _WIN32
+#	define QUBE_OS_WINDOWS
+#	ifdef _WIN64
+#		define QUBE_OS_64
+#	else
+#		define QUBE_OS_32
+#	endif
+#endif
+
 #endif
