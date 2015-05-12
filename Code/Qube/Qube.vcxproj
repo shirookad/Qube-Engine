@@ -154,6 +154,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="DynamicLibrary.h" />
     <ClInclude Include="Node.h" />
     <ClInclude Include="ProjectDefines.h" />
     <ClInclude Include="Qube.h" />
@@ -175,6 +176,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
       </PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="DynamicLibrary.cpp" />
     <ClCompile Include="Node.cpp" />
     <ClCompile Include="Qube.cpp" />
     <ClCompile Include="stdafx.cpp" />
