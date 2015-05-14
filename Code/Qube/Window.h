@@ -42,12 +42,19 @@ namespace qube {
 		__SDL_Window m_window{ nullptr };
 
 	public:
-		QUBE_API Window(const char *title, int x, int y, int w, int h);
+		QUBE_API Window(const char *title, int x, int y, int w, int h, FlagBit options);
 		QUBE_API ~Window();
 
-		QUBE_API void setTitle(const char *title) noexcept;
-		QUBE_API const char *title() const noexcept;
+		QUBE_API void setTitle(const char *title);
+		QUBE_API const char *title() const;
 	};
+
+	constexpr uint32 operator & (Window::FlagBit lhs, Window::FlagBit rhs) {
+		return static_cast<uint32>(lhs) & static_cast<uint32>(rhs);
+	}
+	constexpr Window::FlagBit operator | (Window::FlagBit lhs, Window::FlagBit rhs) {
+		return static_cast<Window::FlagBit>(static_cast<uint32>(lhs) | static_cast<uint32>(rhs));
+	}
 }
 
 #endif
