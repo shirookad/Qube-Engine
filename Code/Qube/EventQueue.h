@@ -9,8 +9,12 @@ namespace qube {
 	struct Event {
 		enum class Type : int32 {
 			NONE,
-			AUDIO_DEVICE_ADDED,
-			AUDIO_DEVICE_REMOVED,
+			APP_TERMINATING,
+			APP_LOWMEMORY,
+			APP_WILLENTERBACKGROUND,
+			APP_DIDENTERBACKGROUND,
+			APP_WILLENTERFOREGROUND,
+			APP_DIDENTERFOREGROUND,
 			CONTROLLER_AXIS_MOTION,
 			CONTROLLER_BUTTON_DOWN,
 			CONTROLLER_BUTTON_UP,
@@ -49,6 +53,7 @@ namespace qube {
 	class EventQueue {
 	public:
 		QUBE_API void pushAll() const;
+		QUBE_API void push(const Event& in) const;
 		QUBE_API bool poll(Event *out) const;
 	};
 }
