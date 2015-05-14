@@ -163,6 +163,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="DynamicLibrary.h" />
+    <ClInclude Include="EventQueue.h" />
     <ClInclude Include="Node.h" />
     <ClInclude Include="ProjectDefines.h" />
     <ClInclude Include="Qube.h" />
@@ -186,9 +187,11 @@
       </PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="DynamicLibrary.cpp" />
+    <ClCompile Include="EventQueue.cpp" />
     <ClCompile Include="Node.cpp" />
     <ClCompile Include="Qube.cpp" />
     <ClCompile Include="stdafx.cpp" />
+    <ClCompile Include="Window.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
