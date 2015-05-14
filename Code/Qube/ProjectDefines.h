@@ -37,4 +37,6 @@ namespace qube {
 	using sfloat = float32;
 }
 
+#define QUBE_ENUM_ELEMENT_COUNT(e) (static_cast<int32>(e::__COUNT))
+
 #endif
