@@ -18,6 +18,10 @@
 #	endif
 #endif
 
+#ifdef _DEBUG
+#	define QUBE_DEBUG
+#endif
+
 #include <cstdint>
 namespace qube {
 	using int8 = std::int8_t;
