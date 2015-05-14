@@ -163,6 +163,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="DynamicLibrary.h" />
+    <ClInclude Include="ErrorHandler.h" />
     <ClInclude Include="EventQueue.h" />
     <ClInclude Include="Node.h" />
     <ClInclude Include="ProjectDefines.h" />
@@ -187,6 +188,7 @@
       </PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="DynamicLibrary.cpp" />
+    <ClCompile Include="ErrorHandler.cpp" />
     <ClCompile Include="EventQueue.cpp" />
     <ClCompile Include="Node.cpp" />
     <ClCompile Include="Qube.cpp" />

@@ -39,6 +39,9 @@
     <ClInclude Include="EventQueue.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
+    <ClInclude Include="ErrorHandler.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -60,6 +63,9 @@
       <Filter>Quelldateien</Filter>
     </ClCompile>
     <ClCompile Include="EventQueue.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="ErrorHandler.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
   </ItemGroup>
