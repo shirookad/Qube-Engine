@@ -1,6 +1,8 @@
 #include "stdafx.h"
 #include "Node.h"
 
+#include "ErrorHandler.h"
+
 #include <stdexcept>
 #include <algorithm>
 
@@ -41,14 +43,14 @@ namespace qube {
 	}
 
 	void Node::removeFromParent() {
-		if (!m_parent) { throw std::runtime_error(std::string("Failed to remove node \"") + m_name + "\" from parent: Node has no parent"); }
+		if (!m_parent) { QUBE_PUSH_ERROR(g_errorHandler, std::string("Failed to remove node \"") + m_name + "\" from parent: Node has no parent"); }
 		m_parent->m_children.erase(std::find_if(std::begin(m_parent->m_children), std::end(m_parent->m_children), [this](const auto& child) { return child.get() == this; }));
 		m_parent = nullptr;
 	}
 
 	std::shared_ptr<Node> Node::removeChild(const char *name) {
 		auto childIter = childIterator(name);
-		if (childIter == std::end(m_children)) throw std::runtime_error("Failed to find the given name of the child to be removed");
+		if (childIter == std::end(m_children)) QUBE_PUSH_ERROR(g_errorHandler, "Failed to find the given name of the child to be removed");
 		auto removed = *childIter;
 		removed->m_parent = nullptr;
 		m_children.erase(childIter);
